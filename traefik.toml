@@ -1,0 +1,31 @@
+traefikLogsFile = "/var/log/traefik.log"
+logLevel = "DEBUG"
+defaultEntryPoints = ["http"]
+[entryPoints]
+  [entryPoints.http]
+  address = ":82"
+
+[web]
+  address = ":8080"
+
+#[file]
+#  filename = "/etc/traefik/rules.toml"
+#  watch = true
+
+[file]
+#directory = "/etc/traefik/rules/"
+ filename = "/etc/traefik/rules.toml"
+ watch = true
+
+[marathon]
+  endpoint = "http://marathon.service.consul:8080"
+  domain = "lab.int"
+  watch = true
+
+#[kubernetes]
+#  endpoint = "http://kube-m-1.lab.int:8080"
+#  namespaces = ["kube-system"]
+
+#[rancher]
+#  domain = "lab.int"
+#  Endpoint = "http://rancher.lab.int:8080
