@@ -1,0 +1,22 @@
+[backends]
+   [backends.backend1]
+#     [backends.backend1.circuitbreaker]
+#       expression = "NetworkErrorRatio() > 0.5"
+     [backends.backend1.healthcheck]
+        path = "/"
+        interval = "10s"
+     [backends.backend1.servers.server1]
+     url = "http://gitlab-ci.lab.int"
+     weight = 10
+     [backends.backend1.servers.server2]
+     url = "http://jenkins.lab.int"
+     weight = 10
+
+[frontends]
+   [frontends.frontend1]
+   backend = "backend1"
+   entrypoints = ["http", "https"]
+     [frontends.frontend1.routes.test_1]
+     rule = "Host: lb-m.lab.int"
+
+
