@@ -6,16 +6,16 @@
         path = "/"
         interval = "10s"
      [backends.backend1.servers.server1]
-     url = "http://teamcity.service.consul:8111"
+     url = "http://5a.lab.int:8000"
      weight = 10
      [backends.backend1.servers.server2]
-     url = "http://jenkins.lab.int"
+     url = "http://5c.lab.int:80"
      weight = 10
 
 [frontends]
    [frontends.frontend1]
    backend = "backend1"
      [frontends.frontend1.routes.test_1]
-     rule = "Host: lb-m.lab.int"
+     rule = "Host: 5c.lab.int"
 
 

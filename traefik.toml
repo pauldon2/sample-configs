@@ -13,8 +13,8 @@ defaultEntryPoints = ["http"]
 #  watch = true
 
 [file]
-#directory = "/etc/traefik/rules/"
- filename = "/etc/traefik/rules.toml"
+ directory = "/etc/traefik/rules/"
+# filename = "/etc/traefik/rules.toml"
  watch = true
 
 [marathon]
