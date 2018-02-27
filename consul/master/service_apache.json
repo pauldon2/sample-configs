@@ -1,0 +1,19 @@
+{
+  "service": {
+    "check": {
+    "id": "apache",
+    "name": "apache",
+    "http": "http://10.0.0.240:80",
+    "method": "POST",
+    "interval": "10s",
+    "timeout": "1s"
+},
+    "enableTagOverride": false,
+    "id": "apache",
+    "name": "apache",
+    "port": 80,
+    "tags": [
+
+    ]
+  }
+}
