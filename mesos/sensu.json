@@ -5,13 +5,6 @@
   "mem": 256,
   "disk": 0,
   "instances": 1,
-  "constraints": [
-    [
-      "rack",
-      "LIKE",
-      "mesos-slave-1"
-    ]
-  ],
   "acceptedResourceRoles": [
     "*"
   ],
@@ -39,12 +32,16 @@
     }
   },
   "env": {
-    "REDIS_HOST": "5s.lab.int",
+    "RABBITMQ_USER": "sensu",
+    "REDIS_HOST": "redis.service.ua.consul",
     "REDIS_AUTO_RECONNECT": "true",
     "RUNTIME_INSTALL": "graphite",
     "REDIS_RECONNECT_ON_ERROR": "false",
+    "RABBITMQ_VHOST": "/sensu",
     "TRANSPORT_NAME": "redis",
-    "API_HOST": "5s.lab.int"
+    "RABBITMQ_HOST": "rabbit.service.ua.consul",
+    "RABBITMQ_PASSWORD": "sensu",
+    "API_HOST": "sensu-api.service.ua.consul"
   },
   "labels": {
     "tag": "monitoring"
