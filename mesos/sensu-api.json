@@ -1,0 +1,71 @@
+{
+  "id": "/sensu-api",
+  "cmd": null,
+  "cpus": 0.1,
+  "mem": 256,
+  "disk": 0,
+  "instances": 1,
+  "acceptedResourceRoles": [
+    "*"
+  ],
+  "container": {
+    "type": "DOCKER",
+    "volumes": [
+      {
+        "containerPath": "/etc/sensu/check.d",
+        "hostPath": "/mnt/docker/sensu/checks",
+        "mode": "RW"
+      },
+      {
+        "containerPath": "/etc/sensu/handlers",
+        "hostPath": "/mnt/docker/sensu/handlers",
+        "mode": "RW"
+      }
+    ],
+    "docker": {
+      "image": "sstarcher/sensu:latest",
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "containerPort": 4567,
+          "hostPort": 4567,
+          "servicePort": 10003,
+          "protocol": "tcp",
+          "labels": {}
+        }
+      ],
+      "privileged": false,
+      "parameters": [],
+      "forcePullImage": true
+    }
+  },
+  "env": {
+    "REDIS_HOST": "5s.lab.int",
+    "REDIS_AUTO_RECONNECT": "true",
+    "REDIS_RECONNECT_ON_ERROR": "true",
+    "API_HOST": "5s.lab.int"
+  },
+  "healthChecks": [
+    {
+      "gracePeriodSeconds": 300,
+      "intervalSeconds": 60,
+      "timeoutSeconds": 20,
+      "maxConsecutiveFailures": 3,
+      "portIndex": 0,
+      "protocol": "TCP"
+    }
+  ],
+  "labels": {
+    "tag": "monitoring"
+  },
+  "portDefinitions": [
+    {
+      "port": 10003,
+      "protocol": "tcp",
+      "labels": {}
+    }
+  ],
+  "args": [
+    "api"
+  ]
+}

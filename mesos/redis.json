@@ -1,0 +1,56 @@
+{
+  "id": "/redis",
+  "cmd": null,
+  "cpus": 0.1,
+  "mem": 128,
+  "disk": 0,
+  "instances": 1,
+  "constraints": [
+    [
+      "hostname",
+      "UNIQUE"
+    ]
+  ],
+  "acceptedResourceRoles": [
+    "*"
+  ],
+  "container": {
+    "type": "DOCKER",
+    "volumes": [],
+    "docker": {
+      "image": "redis:alpine",
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "containerPort": 6379,
+          "hostPort": 6379,
+          "servicePort": 10001,
+          "protocol": "tcp",
+          "labels": {}
+        }
+      ],
+      "privileged": false,
+      "parameters": [],
+      "forcePullImage": false
+    }
+  },
+  "healthChecks": [
+    {
+      "gracePeriodSeconds": 300,
+      "intervalSeconds": 10,
+      "timeoutSeconds": 2,
+      "maxConsecutiveFailures": 1,
+      "portIndex": 0,
+      "protocol": "TCP"
+    }
+  ],
+  "portDefinitions": [
+    {
+      "port": 10001,
+      "protocol": "tcp",
+      "name": "default",
+      "labels": {}
+    }
+  ],
+  "maxLaunchDelaySeconds": 60
+}
