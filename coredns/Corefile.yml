@@ -1,0 +1,6 @@
+.:53 {
+  proxy . 8.8.8.8:53
+  file /etc/coredns/lab.home
+  errors stdout
+  log stdout
+}

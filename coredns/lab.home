@@ -1,0 +1,19 @@
+$TTL 86400
+@        IN     SOA     lab.home. lab.home.local. (
+                        2018031501
+                        43200
+                        3600
+                        3600000
+                        2592000 )
+
+        IN NS ns1.lab.home.
+        IN A 192.168.0.33
+        IN MX 10 mx.lab.home.
+
+mx      IN A 192.168.0.33
+ns1     IN A 192.168.0.33
+mkub    IN A 192.168.0.33
+wkub    IN A 192.168.0.34
+fwww    IN A 192.168.0.21
+cwww    IN A 192.168.0.22
+dwww    IN A 192.168.0.23
